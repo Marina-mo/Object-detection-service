@@ -1,0 +1,11 @@
+docker scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ 'prom:9090' ]
+
+  - job_name: 'app-server'
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ 'app:80' ]
+
