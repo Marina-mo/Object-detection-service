@@ -10,13 +10,14 @@ This service uses MaskRCNN to determine which objects are depicted in the image.
 
 2) Run this docker image with the following command:
 
-    `docker run -p 8080:8080 `
+    `docker run -p 8080:8080 <server_name:version>`
 
 3) Now you can send a url of image you want to processede:
 
     `curl -XPOST http://localhost:8080/predict -H "Content-Type: application/json" -d '{"url": <"you url">}'`
 
 4) You'll get a response in json format contains the list of objects in yout image:
+
     `{"objects": [
         "bird",
         "boat",
@@ -31,5 +32,6 @@ This service uses MaskRCNN to determine which objects are depicted in the image.
         "boat"
     ]}`
 
-5) Service metrics can be found via /metrics on 8080 port. The most important metric for us is app_http_inference_count - the number of http endpoint invocations.
+5) Service metrics can be found via /metrics on 8080 port. The most important metric for us is app_http_inference_count - the number of http endpoint invocations
+
     `curl http://localhost:8080/metrics`    
